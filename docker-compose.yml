@@ -19,18 +19,18 @@ services:
     ports:
       - "8080:8080"
 
-  watcher:
-    <<: *fastai
-    command: watchmedo shell-command --command nbdev_build_docs --pattern *.ipynb --recursive --drop
-    network_mode: host # for GitHub Codespaces https://github.com/features/codespaces/
+  # watcher:
+  #   <<: *fastai
+  #   command: watchmedo shell-command --command nbdev_build_docs --pattern *.ipynb --recursive --drop
+  #   network_mode: host # for GitHub Codespaces https://github.com/features/codespaces/
 
-  jekyll:
-    <<: *fastai
-    ports:
-     - "4000:4000"
-    command: >
-     bash -c "cp -r docs_src docs
-     && pip install .
-     && nbdev_build_docs && cd docs
-     && bundle i
-     && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0"
+  # jekyll:
+  #   <<: *fastai
+  #   ports:
+  #    - "4000:4000"
+  #   command: >
+  #    bash -c "cp -r docs_src docs
+  #    && pip install .
+  #    && nbdev_build_docs && cd docs
+  #    && bundle i
+  #    && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0"
