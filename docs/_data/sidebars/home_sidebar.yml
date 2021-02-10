@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: module name here
+      title: Time Series Feature Engineering Core
       url: core.html
     output: web
     title: timeseries_feature_engineering

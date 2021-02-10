@@ -4,7 +4,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {}
 
-modules = ["core.py"]
+modules = []
 
 doc_url = "https://shanaka-desoysa.github.io/timeseries_feature_engineering/"
 
