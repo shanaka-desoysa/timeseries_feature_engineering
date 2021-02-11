@@ -12,7 +12,7 @@ index = {"ifnone": "00_core.ipynb",
          "add_expanding_features": "00_core.ipynb",
          "add_trend_features": "00_core.ipynb"}
 
-modules = ["timeseries_feature_engineering/core.py"]
+modules = ["core.py"]
 
 doc_url = "https://shanaka-desoysa.github.io/timeseries_feature_engineering/"
 
