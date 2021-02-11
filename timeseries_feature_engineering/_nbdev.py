@@ -2,7 +2,10 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"add_lag_features": "00_core.ipynb",
+index = {"ifnone": "00_core.ipynb",
+         "make_date": "00_core.ipynb",
+         "add_datepart": "00_core.ipynb",
+         "add_lag_features": "00_core.ipynb",
          "add_lag_percentage_gain_features": "00_core.ipynb",
          "add_moving_average_features": "00_core.ipynb",
          "add_moving_average_percentage_gain_features": "00_core.ipynb",
