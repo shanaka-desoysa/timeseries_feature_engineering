@@ -16,6 +16,6 @@ modules = ["timeseries_feature_engineering/core.py"]
 
 doc_url = "https://shanaka-desoysa.github.io/timeseries_feature_engineering/"
 
-git_url = "https://github.com/shanaka-desoysa/timeseries_feature_engineering/tree/{branch}/"
+git_url = "https://github.com/shanaka-desoysa/timeseries_feature_engineering/tree/master/"
 
 def custom_doc_links(name): return None
