@@ -2,11 +2,6 @@
 > Time series feature generator.
 
 
-```
-%load_ext autoreload
-%autoreload 2
-```
-
 This file will become your README and also the index of your documentation.
 
 ## Install
@@ -17,7 +12,7 @@ This file will become your README and also the index of your documentation.
 
 ### Add Date Parts
 
-```
+```python
 df = pd.DataFrame({'date': ['2019-12-04', None, '2019-11-15', '2019-10-24']})
 df = add_datepart(df, 'date')
 df.head()
@@ -135,7 +130,7 @@ df.head()
 With weighted average. 
 > Recency in an important factor in a time series. Values closer to the current date would hold more information.
 
-```
+```python
 df = pd.DataFrame({
     'date': pd.date_range('2019-12-01', '2019-12-10'), 
     'sales': np.random.randint(100, 500, size=10)
@@ -250,7 +245,7 @@ df.head(10)
 
 Without weighted average.
 
-```
+```python
 df = pd.DataFrame({
     'date': pd.date_range('2019-12-01', '2019-12-10'), 
     'sales': np.random.randint(100, 500, size=10)
@@ -365,7 +360,7 @@ df.head(10)
 
 ### Add Expanding Features
 
-```
+```python
 df = pd.DataFrame({
     'date': pd.date_range('2019-12-01', '2019-12-10'), 
     'sales': np.random.randint(100, 500, size=10)
@@ -439,7 +434,7 @@ df.head()
 
 ### Add Trend Features
 
-```
+```python
 df = pd.DataFrame({
     'date': pd.date_range('2019-12-01', '2019-12-10'), 
     'sales': np.random.randint(100, 500, size=10)
