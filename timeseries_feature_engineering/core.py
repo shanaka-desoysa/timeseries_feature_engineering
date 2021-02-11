@@ -6,12 +6,16 @@ __all__ = ['ifnone', 'make_date', 'add_datepart', 'add_lag_features', 'add_lag_p
 
 # Cell
 from typing import *
+from fastcore import *
+from fastcore.utils import *
+from fastcore.script import *
+import pandas as pd
+import numpy as np
 
 # Cell
 def ifnone(a:Any,b:Any)->Any:
     "`a` if `a` is not None, otherwise `b`."
     return b if a is None else a
-
 
 # Cell
 def make_date(df, date_field):
@@ -21,7 +25,6 @@ def make_date(df, date_field):
         field_dtype = np.datetime64
     if not np.issubdtype(field_dtype, np.datetime64):
         df[date_field] = pd.to_datetime(df[date_field], infer_datetime_format=True)
-
 
 # Cell
 def add_datepart(df, field_name, prefix=None, drop=True, time=False):
@@ -57,8 +60,6 @@ def add_lag_percentage_gain_features(df, field_name, prefix=None, lag_periods=[1
         df[f'{prefix}-{n}p_PG'] = df[field_name]/df[field_name].shift(n)
     return df
 
-
-
 # Cell
 def add_moving_average_features(df, field_name, prefix=None, windows=[3], weighted=True):
     "Helper function that adds moving average (rolling window) features relevant to the column `field_name` of `df`."
@@ -73,8 +74,6 @@ def add_moving_average_features(df, field_name, prefix=None, windows=[3], weight
         else:
             df[f'{prefix}_{n}p_MA'] = df[field_name].rolling(window=n).mean()
     return df
-
-
 
 # Cell
 def add_moving_average_percentage_gain_features(df, field_name, prefix=None, windows=[3], weighted=True):
@@ -91,18 +90,13 @@ def add_moving_average_percentage_gain_features(df, field_name, prefix=None, win
             df[f'{prefix}_{n}p_MA_PG'] = df[field_name]/df[field_name].rolling(window=n).mean()
     return df
 
-
-
 # Cell
 def add_expanding_features(df, field_name, prefix=None, period=7):
     "Helper function that adds expanding features relevant to the column `field_name` of `df`."
     field = df[field_name]
     prefix = ifnone(prefix, field_name)
-    for n in windows:
-        df[f'{prefix}_{n}p_expanding'] = df[field_name].expanding(n).mean()
+    df[f'{prefix}_{period}p_expanding'] = df[field_name].expanding(period).mean()
     return df
-
-
 
 # Cell
 def add_trend_features(df, field_name, prefix=None, windows=[3]):
